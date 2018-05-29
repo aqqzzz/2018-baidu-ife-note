@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一天</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">第一天</h1>
+        <div class="show-content">
+          <h1># HTML、HTML5 &amp; XHTML</h1><p>HTML是代码标记语言，网页的骨架</p><p>HTML5是HTML语言的标准</p><p>XHTML是HTML和XML杂交的一种代码标记语言</p><hr><h1># Web Server &amp; Web Services </h1><p>Web Server：1. 根据url返回对应的html代码 2. Ajax返回的数据 3. 应用软件与服务器的交互</p><p>【注意】客户端与服务器交互的主体、客体、载体有很多</p><p>- 服务器：大型机/个人电脑，能提供服务即可</p><p>- 客户端：软件（手机（移动端）、平板（web端）、智能设备（？？））</p><p>- 载体：html、服务器上的文件、经过一定逻辑处理后生成的字符串或其他封装好的数据。</p><p>Web Service：服务器和客户端（包括传统的客户端，以及为程序员设计二次开发的API）通过网络进行交互的形式，协议+格式的交流体系</p><p>    - 遵循的协议（HTML/XHTML）</p><p>    - 数据封装格式（HTML/XML）</p><p>Web Server提供Web Service，以及 缓存，平衡负载</p><p>常见开源 Web Server：Apache、Nginx，也可自己定制</p><hr><h1># 服务器脚本</h1><p>服务器操作本地文件/数据库的代码（Web Service传输的数据）</p><hr><h1># 网站访问的过程</h1><p>1. 用户操作浏览器访问，浏览器向服务器发送HTTP请求</p><p>2. 服务器接收到 HTTP 请求，Web Server 进行相应的初步处理，使用服务器脚本生成页面；</p><p>3. 服务器脚本（利用Web Framework）调用本地和客户端传来的数据，生成页面；</p><p>4. Web Server 将生成的页面作为 HTTP 响应的 body，根据不同的处理结果生成 HTTP header，发回给客户端；</p><p>5. 客户端（浏览器）接收到 HTTP 响应，通常第一个请求得到的 HTTP 响应的 body 里是 HTML 代码，于是对 HTML 代码开始解析；</p><p>6. 解析过程中遇到引用的服务器上的资源（额外的 CSS、JS代码，图片、音视频，附件等），再向 Web Server 发送请求，Web Server 找到对应的文件，发送回来；</p><p>7. 浏览器解析 HTML 包含的内容，用得到的 CSS 代码进行外观上的进一步渲染，JS 代码也可能会对外观进行一定的处理；</p><p>8. 用户与页面交互（点击，悬停等等）时，JS 代码对此作出一定的反应，添加特效与动画；</p><p>9. 交互的过程中可能需要向服务器索取或提交额外的数据（局部的刷新，类似微博的新消息通知），一般不是跳转就是通过 JS 代码（响应某个动作或者定时）向 Web Server 发送请求，Web Server 再用服务器脚本进行处理（生成资源or写入数据之类的），把资源返回给客户端，客户端用得到的资源来实现动态效果或其他改变。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
