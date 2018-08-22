@@ -1,0 +1,37 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+#container {
+  padding: 0 200px;
+  height: 100%;
+}
+
+#center {
+  width: 100%;
+  height: 100%;
+  background: red;
+  float: left;
+  position: relative;
+}
+
+#left, #right {
+  width: 200px;
+  background: yellow;
+  float: left;
+  position: relative;
+}
+
+#left {
+  height: 100%;
+  margin-left: -100%;
+  left:-200px;
+}
+
+#right {
+  height: 100%;
+  margin-left: -200px;
+  right: -200px;
+}
+/* 圣杯布局: center 在布局中处于最前面 */

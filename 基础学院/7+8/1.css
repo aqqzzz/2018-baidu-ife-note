@@ -1,3 +1,15 @@
-#header {
-  
+body, html {
+  height: 100%;
+}
+#left {
+  float: left;
+  width: 30%;
+  background: yellow;
+  height: 100%;
+}
+
+#right {
+  margin-left: 30%;
+  background: red;
+  height: 100%;
 }

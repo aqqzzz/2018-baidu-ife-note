@@ -1,0 +1,20 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+}
+
+#left {
+  background: red;
+  height: 100%;
+  flex-grow: 1;
+}
+
+#right {
+  width: 30%;
+  background: yellow;
+  height: 100%;
+}
