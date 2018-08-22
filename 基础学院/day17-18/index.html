@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+    <button id="trans-btn" onclick="clickBtn()">转化为二进制</button>
+    <p id="result">运算结果</p>
+
+    <table id="table" border="1"/>
+
+    <script>
+    // 编码一
+    function checkNumber(input) {
+      // 检查是否为非负整数
+      const type = Object.prototype.toString.call(input).split(' ')[1].toLowerCase()
+      if (type.includes('string') && Object.prototype.toString.call(input * 1).toLowerCase().includes('number')) {
+        let num = input * 1
+        if (num < 0 || Math.floor(num) != num) {
+          return false
+        } else {
+          return true
+        }
+      } else {
+        return false
+      }
+    }
+
+    function dec2bin(decNumber) {
+      // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+      const type = Object.prototype.toString.call(decNumber).split(' ')[1].toLowerCase()
+      if (type.includes('string') && Object.prototype.toString.call(decNumber * 1).toLowerCase().includes('number')) {
+        let num = decNumber * 1;
+        if (num < 0 || Math.floor(num) != num) {
+          return decNumber + ' 不是一个非负整数'
+        }
+        num = Math.floor(num)
+        return transfer(num, 2)
+      } else {
+        return decNumber + ' is not a number!'
+      }
+
+    }
+
+    function transfer(number, decimal) {
+      const remain = number % decimal;
+      const quotient = Math.floor(number / decimal);
+      if (quotient != 0) {
+        let result = transfer(quotient, decimal) + remain.toString()
+        return result
+      } else {
+        return remain + ''
+      }
+    }
+
+    // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+    // Some coding
+    function clickBtn(e) {
+      // const result = dec2bin(document.getElementById('dec-number').value)
+      const result = numWidth(document.getElementById('dec-number').value)
+      document.getElementById('result').innerHTML = result
+    }
+
+    // 新的需求是，转化显示后的二进制数为bin-bit中输入的数字宽度，例如
+    // dec-number为5，bin-bit为5，则转化后数字为00101
+    // 如果bin-bit小于转化后的二进制本身位数，则使用原本的位数，如dec-number为5，bin-bit为2，依然输出101，但同时在console中报个错
+    function numWidth(number) {
+      const result = dec2bin(number)
+      const width = document.getElementById('bin-bit').value
+      if (checkNumber(width)) {
+        const resultStr = result.toString()
+        const diff = width - resultStr.length
+        console.log(diff)
+        if (diff <= 0) {
+          if (diff < 0) {
+            console.error('位数不足')
+          }
+          return resultStr
+        } else {
+          console.log(new Array(diff).join('0'))
+          return new Array(diff+1).join('0') + resultStr
+        }
+      }
+    }
+
+    // 九九乘法表
+    window.onload = function(){
+      // 也可以直接用innerHTML来设置，会自动对对应标签进行转义
+      const table = document.querySelector('#table')
+      for (let i = 0; i < 9; i ++) {
+        const tr = document.createElement('tr')
+        for (let j = 0; j < 9; j++) {
+          if (j <= i) {
+            const td = document.createElement('td')
+            td.innerHTML = i + ' * ' + j + ' = ' + (i*j)
+            tr.appendChild(td)
+          }
+        }
+        table.appendChild(tr)
+      }
+    }
+    </script>
+</body>
+</html>
